@@ -245,7 +245,7 @@ const InfoItem = tw.li`
     pl-[25px]
 `;
 
-const InfoLabel = tw.li`
+const InfoLabel = tw.div`
     inline-block
     w-[90px]
     pr-[5px]
@@ -269,6 +269,49 @@ const InfoText = tw.p`
     text-[#000]
     text-[16px]
     leading-[160%]
+`;
+
+const InfoPrice = tw(InfoItem)`
+
+`;
+
+const InfoPriceList = tw.ul`
+    mb-[8px]
+`;
+
+const InfoPriceItem = tw.li`
+    first:mt-0
+    flex
+    gap-[7px]
+    mt-[13px]
+    text-[#000]
+    leading-[20px]
+`;
+
+const IsLargePrice = tw(InfoPriceItem)`
+    mb-[15px]
+    font-bold
+`;
+
+const ItemName = tw.span`
+    overflow-hidden
+    text-ellipsis
+    whitespace-nowrap
+    min-w-[30px]
+    max-w-[300px]
+    text-[#666]
+    align-top
+    inline-block
+    text-[14px]
+    break-keep
+`;
+
+const ItemPrice = tw.span`
+    align-top
+    font-bold
+    inline-block
+    text-[14px]
+    break-keep
 `;
 
 export default function Home() {
@@ -336,6 +379,30 @@ export default function Home() {
                                             <InfoText>전체관람가</InfoText>
                                         </InfoDesc>
                                     </InfoItem>
+                                    <InfoPrice>
+                                        <InfoLabel>가격</InfoLabel>
+                                        <InfoDesc>
+                                            <InfoPriceList>
+                                                <IsLargePrice>전체가격보기</IsLargePrice>
+                                                <InfoPriceItem>
+                                                    <ItemName>스탠딩SR</ItemName>
+                                                    <ItemPrice>175.000원</ItemPrice>
+                                                </InfoPriceItem>
+                                                <InfoPriceItem>
+                                                    <ItemName>스탠딩R</ItemName>
+                                                    <ItemPrice>165.000원</ItemPrice>
+                                                </InfoPriceItem>
+                                                <InfoPriceItem>
+                                                    <ItemName>지정석SR</ItemName>
+                                                    <ItemPrice>175.000원</ItemPrice>
+                                                </InfoPriceItem>
+                                                <InfoPriceItem>
+                                                    <ItemName>지정석R</ItemName>
+                                                    <ItemPrice>165.000원</ItemPrice>
+                                                </InfoPriceItem>
+                                            </InfoPriceList>
+                                        </InfoDesc>
+                                    </InfoPrice>
                                 </Info>
                             </SummaryBody>
                         </Summary>
