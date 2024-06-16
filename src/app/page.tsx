@@ -314,6 +314,56 @@ const ItemPrice = tw.span`
     break-keep
 `;
 
+const InfoBenefitGuide = tw.div`
+    inline-block
+    mr-[2px]
+`;
+
+const InfoBenefitList = tw.div`
+    mt-[10px]
+    mb-[5px]
+`;
+
+const InfoLink = tw.div`
+    relative
+    block
+    font-[14px]
+    leading-[150%]
+    text-[#666]
+    pr-[6px]
+    align-top
+    after:bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_smallArrow.png')]
+    after:content-['']
+    after:bg-no-repeat
+    after:inline-block
+    after:w-[4px]
+    after:h-[7px]
+    after:mt-[-3px]
+    after:ml-[4px]
+    after:align-middle
+    last:mt-[12px]
+`;
+
+const LogoNolPoint = tw.span`
+    bg-[url('https://openimage.interpark.com/ticket-mobile/pages/product/log_nol.png')]
+    bg-no-repeat
+    w-[32px]
+    h-[20px]
+    bg-contain
+    pr-[40px]
+`;
+
+const LogoToping = tw.span`
+    bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/logo_toping_new.png')]
+    bg-no-repeat
+    w-[42px]
+    h-[13px]
+    mt-[3px]
+    bg-contain
+    pr-[45px]
+
+`;
+
 export default function Home() {
     return (
         <Contents>
@@ -403,6 +453,22 @@ export default function Home() {
                                             </InfoPriceList>
                                         </InfoDesc>
                                     </InfoPrice>
+                                    <InfoItem>
+                                        <InfoLabel>혜택</InfoLabel>
+                                        <InfoDesc>
+                                            <InfoBenefitGuide>무이자할부</InfoBenefitGuide>
+                                            <InfoBenefitList>
+                                                <InfoLink>
+                                                    <LogoNolPoint></LogoNolPoint>
+                                                    NOL 카드로 최대 7만원 혜택받기
+                                                </InfoLink>
+                                                <InfoLink>
+                                                    <LogoToping></LogoToping>
+                                                    가입하고 중복할인 쿠폰받기
+                                                </InfoLink>
+                                            </InfoBenefitList>
+                                        </InfoDesc>
+                                    </InfoItem>
                                 </Info>
                             </SummaryBody>
                         </Summary>
