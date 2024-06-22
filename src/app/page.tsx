@@ -269,6 +269,13 @@ const InfoText = tw.p`
     text-[#000]
     text-[16px]
     leading-[160%]
+    break-keep
+    text-[14px]
+
+`;
+
+const InfoShipping = tw(InfoText)`
+    text-[#666]
 `;
 
 const InfoPrice = tw(InfoItem)`
@@ -327,7 +334,7 @@ const InfoBenefitList = tw.div`
 const InfoLink = tw.div`
     relative
     block
-    font-[14px]
+    text-[14px]
     leading-[150%]
     text-[#666]
     pr-[6px]
@@ -342,6 +349,10 @@ const InfoLink = tw.div`
     after:ml-[4px]
     after:align-middle
     last:mt-[12px]
+`;
+
+const InfoLink2 = tw(InfoLink)`
+    inline-block !important;
 `;
 
 const LogoNolPoint = tw.span`
@@ -360,8 +371,90 @@ const LogoToping = tw.span`
     h-[13px]
     mt-[3px]
     bg-contain
-    pr-[45px]
+    pr-[60px]
 
+`;
+
+const InfoPromo = tw(InfoItem)`
+
+`;
+
+const InfoPromoLink = tw.span`
+    inline-block
+     after:bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_smallArrow.png')]
+    after:content-['']
+    after:bg-no-repeat
+    after:inline-block
+    after:w-[4px]
+    after:h-[7px]
+    after:mt-[-3px]
+    after:ml-[4px]
+    after:align-middle
+    last:mt-[12px]
+
+`;
+
+const InfoWarn = tw.span`
+    relative
+    top-[-4px]
+    text-[14px]
+    leading-[30px]
+    break-keep
+`;
+
+const InfoRelated = tw(InfoItem)`
+
+    mt-[30px]
+    pt-[20px]
+    px-[25px]
+    pb-[22px]
+    bg-[#f4f6f9]
+    rounded-[6px]
+`;
+
+const InfoRelatedItem = tw.div`
+    block;
+`;
+
+const InfoRelatedItem2 = tw.div`
+    mt-[10px]
+`;
+
+const InfoRelatedName = tw.span`
+    overflow-hidden
+    text-ellipsis
+    whitespace-nowrap
+    text-[14px]
+    leading-[185%]
+    text-[#000]
+
+`;
+
+const InfoRelatedDate = tw.span`
+    block
+    text-[12px]
+    text-[#666]
+`;
+
+const InfoRelatedMore = tw.div`
+    inline-block
+    mt-[8px]
+    p-[5px 5px 0px 0px]
+    leading-[120%]
+    text-[14px]
+    text-[#666]
+    bg-[right_8px_top_50%]">
+      after:bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_tagArrow.png')]
+    after:content-['']
+    after:bg-no-repeat
+    after:inline-block
+    after:relative
+    after:w-[7px]
+    after:h-[5px]
+    after:top-[-3px]
+    after:left-[3px]
+    after:align-middle
+    after:bg-[left_0px_top_-5px]
 `;
 
 export default function Home() {
@@ -469,6 +562,37 @@ export default function Home() {
                                             </InfoBenefitList>
                                         </InfoDesc>
                                     </InfoItem>
+                                    <InfoPromo>
+                                        <InfoLabel>배송</InfoLabel>
+                                        <InfoDesc>
+                                            <InfoText>2024년 06월 24일 일괄 배송되는 상품입니다.</InfoText>
+                                            <InfoShipping>
+                                                ※ 일괄배송일: 6월 24일(월) ~ 6월 28일(금) <InfoPromoLink>배송주소 확인</InfoPromoLink>
+                                            </InfoShipping>
+                                        </InfoDesc>
+                                    </InfoPromo>
+                                    <InfoItem>
+                                        <InfoLabel>유의사항</InfoLabel>
+                                        <InfoDesc>
+                                            <InfoWarn>
+                                                2024년 06월 12일 14시 00분~2024년 06월 28일 23시 59분까지 <br /> 무통장입금 결제가 불가능합니다.
+                                            </InfoWarn>
+                                        </InfoDesc>
+                                    </InfoItem>
+                                    <InfoRelated>
+                                        <InfoLabel>관련 공연</InfoLabel>
+                                        <InfoDesc>
+                                            <InfoRelatedItem>
+                                                <InfoRelatedName>싸이흠뻑쇼 SUMMERSWAG2024 - 원주</InfoRelatedName>
+                                                <InfoRelatedDate>2024.06.29</InfoRelatedDate>
+                                            </InfoRelatedItem>
+                                            <InfoRelatedItem2>
+                                                <InfoRelatedName>싸이흠뻑쇼 SUMMERSWAG2024 - 광주</InfoRelatedName>
+                                                <InfoRelatedDate>2024.07.06~2024.07.07</InfoRelatedDate>
+                                            </InfoRelatedItem2>
+                                            <InfoRelatedMore>더보기</InfoRelatedMore>
+                                        </InfoDesc>
+                                    </InfoRelated>
                                 </Info>
                             </SummaryBody>
                         </Summary>
