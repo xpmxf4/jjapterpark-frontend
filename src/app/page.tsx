@@ -245,7 +245,7 @@ const InfoItem = tw.li`
     pl-[25px]
 `;
 
-const InfoLabel = tw.li`
+const InfoLabel = tw.div`
     inline-block
     w-[90px]
     pr-[5px]
@@ -269,6 +269,192 @@ const InfoText = tw.p`
     text-[#000]
     text-[16px]
     leading-[160%]
+    break-keep
+    text-[14px]
+
+`;
+
+const InfoShipping = tw(InfoText)`
+    text-[#666]
+`;
+
+const InfoPrice = tw(InfoItem)`
+
+`;
+
+const InfoPriceList = tw.ul`
+    mb-[8px]
+`;
+
+const InfoPriceItem = tw.li`
+    first:mt-0
+    flex
+    gap-[7px]
+    mt-[13px]
+    text-[#000]
+    leading-[20px]
+`;
+
+const IsLargePrice = tw(InfoPriceItem)`
+    mb-[15px]
+    font-bold
+`;
+
+const ItemName = tw.span`
+    overflow-hidden
+    text-ellipsis
+    whitespace-nowrap
+    min-w-[30px]
+    max-w-[300px]
+    text-[#666]
+    align-top
+    inline-block
+    text-[14px]
+    break-keep
+`;
+
+const ItemPrice = tw.span`
+    align-top
+    font-bold
+    inline-block
+    text-[14px]
+    break-keep
+`;
+
+const InfoBenefitGuide = tw.div`
+    inline-block
+    mr-[2px]
+`;
+
+const InfoBenefitList = tw.div`
+    mt-[10px]
+    mb-[5px]
+`;
+
+const InfoLink = tw.div`
+    relative
+    block
+    text-[14px]
+    leading-[150%]
+    text-[#666]
+    pr-[6px]
+    align-top
+    after:bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_smallArrow.png')]
+    after:content-['']
+    after:bg-no-repeat
+    after:inline-block
+    after:w-[4px]
+    after:h-[7px]
+    after:mt-[-3px]
+    after:ml-[4px]
+    after:align-middle
+    last:mt-[12px]
+`;
+
+const InfoLink2 = tw(InfoLink)`
+    inline-block !important;
+`;
+
+const LogoNolPoint = tw.span`
+    bg-[url('https://openimage.interpark.com/ticket-mobile/pages/product/log_nol.png')]
+    bg-no-repeat
+    w-[32px]
+    h-[20px]
+    bg-contain
+    pr-[40px]
+`;
+
+const LogoToping = tw.span`
+    bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/logo_toping_new.png')]
+    bg-no-repeat
+    w-[42px]
+    h-[13px]
+    mt-[3px]
+    bg-contain
+    pr-[60px]
+
+`;
+
+const InfoPromo = tw(InfoItem)`
+
+`;
+
+const InfoPromoLink = tw.span`
+    inline-block
+     after:bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_smallArrow.png')]
+    after:content-['']
+    after:bg-no-repeat
+    after:inline-block
+    after:w-[4px]
+    after:h-[7px]
+    after:mt-[-3px]
+    after:ml-[4px]
+    after:align-middle
+    last:mt-[12px]
+
+`;
+
+const InfoWarn = tw.span`
+    relative
+    top-[-4px]
+    text-[14px]
+    leading-[30px]
+    break-keep
+`;
+
+const InfoRelated = tw(InfoItem)`
+
+    mt-[30px]
+    pt-[20px]
+    px-[25px]
+    pb-[22px]
+    bg-[#f4f6f9]
+    rounded-[6px]
+`;
+
+const InfoRelatedItem = tw.div`
+    block;
+`;
+
+const InfoRelatedItem2 = tw.div`
+    mt-[10px]
+`;
+
+const InfoRelatedName = tw.span`
+    overflow-hidden
+    text-ellipsis
+    whitespace-nowrap
+    text-[14px]
+    leading-[185%]
+    text-[#000]
+
+`;
+
+const InfoRelatedDate = tw.span`
+    block
+    text-[12px]
+    text-[#666]
+`;
+
+const InfoRelatedMore = tw.div`
+    inline-block
+    mt-[8px]
+    p-[5px 5px 0px 0px]
+    leading-[120%]
+    text-[14px]
+    text-[#666]
+    bg-[right_8px_top_50%]">
+      after:bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_tagArrow.png')]
+    after:content-['']
+    after:bg-no-repeat
+    after:inline-block
+    after:relative
+    after:w-[7px]
+    after:h-[5px]
+    after:top-[-3px]
+    after:left-[3px]
+    after:align-middle
+    after:bg-[left_0px_top_-5px]
 `;
 
 export default function Home() {
@@ -336,6 +522,77 @@ export default function Home() {
                                             <InfoText>전체관람가</InfoText>
                                         </InfoDesc>
                                     </InfoItem>
+                                    <InfoPrice>
+                                        <InfoLabel>가격</InfoLabel>
+                                        <InfoDesc>
+                                            <InfoPriceList>
+                                                <IsLargePrice>전체가격보기</IsLargePrice>
+                                                <InfoPriceItem>
+                                                    <ItemName>스탠딩SR</ItemName>
+                                                    <ItemPrice>175.000원</ItemPrice>
+                                                </InfoPriceItem>
+                                                <InfoPriceItem>
+                                                    <ItemName>스탠딩R</ItemName>
+                                                    <ItemPrice>165.000원</ItemPrice>
+                                                </InfoPriceItem>
+                                                <InfoPriceItem>
+                                                    <ItemName>지정석SR</ItemName>
+                                                    <ItemPrice>175.000원</ItemPrice>
+                                                </InfoPriceItem>
+                                                <InfoPriceItem>
+                                                    <ItemName>지정석R</ItemName>
+                                                    <ItemPrice>165.000원</ItemPrice>
+                                                </InfoPriceItem>
+                                            </InfoPriceList>
+                                        </InfoDesc>
+                                    </InfoPrice>
+                                    <InfoItem>
+                                        <InfoLabel>혜택</InfoLabel>
+                                        <InfoDesc>
+                                            <InfoBenefitGuide>무이자할부</InfoBenefitGuide>
+                                            <InfoBenefitList>
+                                                <InfoLink>
+                                                    <LogoNolPoint></LogoNolPoint>
+                                                    NOL 카드로 최대 7만원 혜택받기
+                                                </InfoLink>
+                                                <InfoLink>
+                                                    <LogoToping></LogoToping>
+                                                    가입하고 중복할인 쿠폰받기
+                                                </InfoLink>
+                                            </InfoBenefitList>
+                                        </InfoDesc>
+                                    </InfoItem>
+                                    <InfoPromo>
+                                        <InfoLabel>배송</InfoLabel>
+                                        <InfoDesc>
+                                            <InfoText>2024년 06월 24일 일괄 배송되는 상품입니다.</InfoText>
+                                            <InfoShipping>
+                                                ※ 일괄배송일: 6월 24일(월) ~ 6월 28일(금) <InfoPromoLink>배송주소 확인</InfoPromoLink>
+                                            </InfoShipping>
+                                        </InfoDesc>
+                                    </InfoPromo>
+                                    <InfoItem>
+                                        <InfoLabel>유의사항</InfoLabel>
+                                        <InfoDesc>
+                                            <InfoWarn>
+                                                2024년 06월 12일 14시 00분~2024년 06월 28일 23시 59분까지 <br /> 무통장입금 결제가 불가능합니다.
+                                            </InfoWarn>
+                                        </InfoDesc>
+                                    </InfoItem>
+                                    <InfoRelated>
+                                        <InfoLabel>관련 공연</InfoLabel>
+                                        <InfoDesc>
+                                            <InfoRelatedItem>
+                                                <InfoRelatedName>싸이흠뻑쇼 SUMMERSWAG2024 - 원주</InfoRelatedName>
+                                                <InfoRelatedDate>2024.06.29</InfoRelatedDate>
+                                            </InfoRelatedItem>
+                                            <InfoRelatedItem2>
+                                                <InfoRelatedName>싸이흠뻑쇼 SUMMERSWAG2024 - 광주</InfoRelatedName>
+                                                <InfoRelatedDate>2024.07.06~2024.07.07</InfoRelatedDate>
+                                            </InfoRelatedItem2>
+                                            <InfoRelatedMore>더보기</InfoRelatedMore>
+                                        </InfoDesc>
+                                    </InfoRelated>
                                 </Info>
                             </SummaryBody>
                         </Summary>
