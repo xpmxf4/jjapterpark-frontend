@@ -2,6 +2,8 @@
 
 import { getImage } from "@/utils/asset";
 import tw from "tailwind-styled-components";
+import Calander from "@/components/calander";
+import { useEffect, useState } from "react";
 
 const Contents = tw.div`
     container
@@ -444,7 +446,7 @@ const InfoRelatedMore = tw.div`
     text-[14px]
     text-[#666]
     bg-[right_8px_top_50%]">
-      after:bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_tagArrow.png')]
+    after:bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_tagArrow.png')]
     after:content-['']
     after:bg-no-repeat
     after:inline-block
@@ -457,7 +459,258 @@ const InfoRelatedMore = tw.div`
     after:bg-[left_0px_top_-5px]
 `;
 
+const StickyWrap = tw.div`
+    sticky
+    top-[10px]
+    w-[340px]
+    h-auto
+    m-[10px 0 0 20px]
+    z-[5]
+
+`;
+
+const SideMain = tw.div`
+    w-[330px]
+    my-0
+    mx-auto
+    border-[1px]
+    border-[#b6bdc7]
+    rounded-[15px]
+
+`;
+
+const ContainerTop = tw.div`
+    rounded-t-[0px]
+    pt-[5px]
+    relative
+    pb-[14px]
+    box-border
+`;
+
+const SideHeader = tw.div`
+    px-[20px]
+    pt-[15px]
+    pb-[0]
+    box-border
+`;
+
+const SideToggleButton = tw.div`
+    after:bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_sideToggle.png')]
+    after:content-['']
+    after:bg-no-repeat
+    after:absolute
+    after:top-[25px]
+    after:right-[20px]
+    after:w-[16px]
+    after:h-[9px]
+
+`;
+
+const SideTitle = tw.h4`
+    text-[14px]
+    font-bold
+    select-none
+`;
+
+const ToggleCalendar = tw.div`1
+    p-[2px]
+    max-h-[330px]
+    transition-all
+    
+`;
+
+const Date = tw.div`
+    text-[16px]
+    font-bold
+    text-[#000]
+`;
+
+const ContainerMiddle = tw.div`
+    pb-[20px]
+    relative
+    box-border
+    border-t-[1px]
+    border-t-[#dadee3]
+`;
+
+const SideContent = tw.div`
+    px-[20px]
+    py-0
+`;
+const SideTimeTable = tw.div`
+    max-h-[170px]
+    mt-[8px]
+`;
+
+const TimeTableList = tw.ul`
+    table
+    align-middle
+    text-center
+`;
+
+const TimeTableItem = tw.li`
+    relative
+    table-cell
+    w-[146px]
+`;
+
+const TimeTableLabel = tw.div`
+    cursor-pointer
+    font-bold
+    rounded-[6px]
+    text-[#8e43e7]
+    border-[#8e43e7]
+    box-border
+    border-[1px]
+    relative
+    block
+    w-full
+    h-[45px]
+    text-[14px]
+    leading-[43px]
+    
+`;
+
+const SideSeatTable = tw.div`
+    mt-[11px]
+`;
+
+const SeatTableList = tw.ul`
+
+`;
+
+const SeatTableItem = tw.li`
+    inline-block
+    after:inline
+    after:my-0
+    after:mx-[4px]
+    after:text-[12px]
+    after:content-['/']
+    after:text-[#ccc]
+   
+`;
+const LastTableItem = tw.li`
+    inline-block
+`;
+
+const SeatTableName = tw.strong`
+    text-[12px]
+    leading-[160%]
+    font-normal
+`;
+const SeatTableStatus = tw.span`
+    text-[12px]
+    leading-[160%]
+    font-bold
+    ml-[4px]
+`;
+const SoldOut = tw(SeatTableStatus)`
+    text-[#ccc]
+`;
+
+const SideBtnWrap = tw.div`
+    mt-[20px]
+`;
+
+const SideBtnPrimary = tw.div`
+    cursor-pointer
+    text-[18px]
+    table
+    w-full
+    min-h-[54px]
+    px-[10px]
+    py-0
+    font-bold
+    text-[#fff]
+    bg-[#8e43e7]
+    border-[1px]
+    border-[#8e43e7]
+    rounded-[10px]
+    text-center
+    box-border
+   
+`;
+
+const SideBtnForeign = tw.div`
+    cursor-pointer
+    mt-[10px]
+    h-[52px]
+    leading-[52px]
+    box-border
+    text-center
+    table
+    w-full
+
+     border-[1px]
+    border-[#8e43e7]
+    rounded-[10px]
+    text-[#8e43e7]
+    text-[14px]
+    bg-[#fff]
+    font-bold
+`;
+
+const SideBtnSpan = tw.span`
+    table-cell
+    align-middle
+    text-center
+    leading-[120%]
+    h-full
+`;
+
+const SideBtnLinkIsNolpoint = tw.div`
+    cursor-pointer
+    block
+    mb-[10px]
+    w-full
+    min-h-[16px]
+    text-[14px]
+    text-right
+    bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_smallArrow.png')]
+    bg-no-repeat
+    text-[#666]
+    mt-[18px]
+    pr-[15px]
+    bg-[center_right_6px]
+    box-border
+    leading-[16px]
+    align-middle
+`;
+const SideBtnLinkIsPlaydb = tw.div`
+cursor-pointer
+    block
+    mb-[10px]
+    w-full
+    min-h-[16px]
+    text-[14px]
+    text-right
+    bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/icon_smallArrow.png')]
+    bg-no-repeat
+    text-[#666]
+    mt-[18px]
+    pr-[15px]
+    bg-[center_right_6px]
+    box-border
+    leading-[16px]
+    align-middle
+`;
+
+const LogoPlaydb = tw.div`
+    inline-block
+    align-middle
+    w-[56px]
+    h-[15px]
+    ml-[5px]
+    bg-[url('https://openimage.interpark.com/ticket-desktop/pages/product/logo_playdb.png')]
+    bg-[top_0_left_0]
+    bg-no-repeat
+
+
+`;
+
 export default function Home() {
+    const [openCalendar, setOpenCalendar] = useState(true);
+
     return (
         <Contents>
             <ProductWrapper>
@@ -598,7 +851,75 @@ export default function Home() {
                         </Summary>
                     </ProductMainTop>
                 </ProductMain>
-                <ProductSide></ProductSide>
+                <ProductSide>
+                    <StickyWrap>
+                        <SideMain>
+                            <ContainerTop>
+                                <SideHeader>
+                                    <SideToggleButton onClick={() => setOpenCalendar(!openCalendar)}>
+                                        <SideTitle>관람일</SideTitle>
+                                        {!openCalendar && (
+                                            <>
+                                                <Date>{}</Date>
+                                            </>
+                                        )}
+                                    </SideToggleButton>
+                                    {openCalendar && (
+                                        <ToggleCalendar>
+                                            <Calander />
+                                        </ToggleCalendar>
+                                    )}
+                                </SideHeader>
+                            </ContainerTop>
+                            <ContainerMiddle>
+                                <SideHeader>
+                                    <SideTitle>회차</SideTitle>
+                                </SideHeader>
+                                <SideContent>
+                                    <SideTimeTable>
+                                        <TimeTableList>
+                                            <TimeTableItem>
+                                                <TimeTableLabel>1회 18:00</TimeTableLabel>
+                                            </TimeTableItem>
+                                        </TimeTableList>
+                                    </SideTimeTable>
+                                    <SideSeatTable>
+                                        <SeatTableList>
+                                            <SeatTableItem>
+                                                <SeatTableName>스탠딩SR</SeatTableName>
+                                                <SeatTableStatus>1</SeatTableStatus>
+                                            </SeatTableItem>
+                                            <SeatTableItem>
+                                                <SeatTableName>스탠딩R</SeatTableName>
+                                                <SoldOut>0석</SoldOut>
+                                            </SeatTableItem>
+                                            <SeatTableItem>
+                                                <SeatTableName>지정석SR</SeatTableName>
+                                                <SoldOut>0석</SoldOut>
+                                            </SeatTableItem>
+                                            <LastTableItem>
+                                                <SeatTableName>지정석R</SeatTableName>
+                                                <SeatTableStatus>1</SeatTableStatus>
+                                            </LastTableItem>
+                                        </SeatTableList>
+                                    </SideSeatTable>
+                                </SideContent>
+                            </ContainerMiddle>
+                        </SideMain>
+                        <SideBtnWrap>
+                            <SideBtnPrimary>
+                                <SideBtnSpan>예매하기</SideBtnSpan>
+                            </SideBtnPrimary>
+                            <SideBtnForeign>
+                                <SideBtnSpan>BOOKING / 外國語</SideBtnSpan>
+                            </SideBtnForeign>
+                            <SideBtnLinkIsNolpoint>NOL 카드로 최대 7만원 혜택받기</SideBtnLinkIsNolpoint>
+                            <SideBtnLinkIsPlaydb>
+                                이 공연이 더 궁금하다면<LogoPlaydb></LogoPlaydb>
+                            </SideBtnLinkIsPlaydb>
+                        </SideBtnWrap>
+                    </StickyWrap>
+                </ProductSide>
             </ProductWrapper>
         </Contents>
     );
